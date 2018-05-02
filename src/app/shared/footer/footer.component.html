@@ -1,0 +1,23 @@
+<footer class="footer section-true-black">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/']">Home</a></li>
+                    <li><a [routerLink]="['/purchase']">Purchase</a></li>
+                    <li class="nav-item" *ngIf="!isLoggedIn()">
+                        <a [routerLink]="['/login']" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn()">
+                        <a [routerLink]="['/logout']" class="nav-link">Logout - {{ userName }}</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    © {{footerDate | date: 'yyyy'}}, Barefeetmodels.com
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="section section-dark">
+        <div class="container">
+            <h1>&nbsp;</h1>
+            <div class="row">
+                <div class="col-lg-8" style="vertical-align: top;">
+                    <h5>{{videoTitle}}</h5>
+                    <video width="100%" height="350" controls #videoPlayer id="videoPlayer" poster="../assets/img/loading1.gif">
+                        <source type='video/mp4; codecs="avc1.42e01e, mp4a.40.2"'>
+                    </video>
+                    <p><small>{{videoDescription}}</small></p>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="list-unstyled">
+                        <li class="media" *ngFor="let video of videos">
+                            <img class="d-flex mr-3" (click)="viewVideo(video.id)" src={{video.fileGifUrl}} style="width:100px;height:60px;">
+                            <div class="media-body">
+                                <a (click)="viewVideo(video.id)"><h5 class="mt-0 mb-1">{{video.title}}</h5></a>
+                                <p><small>{{video.description.substring(0, 50)+"..."}}</small></p>
+                                <p><small>&nbsp;</small></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

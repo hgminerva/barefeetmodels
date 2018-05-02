@@ -1,0 +1,15 @@
+<div class="main">
+    <div class="section section-dark">
+        <div class="container">
+            <br>
+            <br>
+            <ul id="videoList">
+                <li *ngFor="let video of videos">
+                    <a [routerLink]="['/dashboardDetail',video.id]">
+                        <img src="{{video.fileGifUrl}}" class="tn" width="200" height="160">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
