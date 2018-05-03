@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getVideos() : void {
-    this.dashboardService.getVideos();
+    this.dashboardService.getVideos(0);
 
     this.videosSub = this.dashboardService.videosObservable.subscribe(
       data => {

@@ -29,8 +29,9 @@ export class DashboardService {
     ) { 
     }
 
-    public getVideos() : void {
-        let url = "https://barefeetmodels-api.azurewebsites.net/api/MstVideo/List";
+    public getVideos(skip: number) : void {
+        // let url = "https://barefeetmodels-api.azurewebsites.net/api/MstVideo/List";
+        let url = "http://localhost:10136/api/MstVideo/List/" + skip;
         let videos = new Array<Object>();
         this.http.get(url, this.options).subscribe(
             response => {
