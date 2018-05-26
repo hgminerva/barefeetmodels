@@ -3,13 +3,33 @@
         <div class="container">
             <br>
             <br>
-            <ul id="videoList">
-                <li *ngFor="let video of videos">
-                    <a [routerLink]="['/dashboardDetail',video.id]">
-                        <img src="{{video.fileGifUrl}}" class="tn" width="200" height="160">
-                    </a>
-                </li>
-            </ul>
+            <ng-container *ngFor="let video of videos; let i = index" [attr.data-index]="i">
+                <ng-container *ngIf="(i + 1) % 4 == 0">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a [routerLink]="['/dashboardDetail',video.id]">
+                                <img src="{{ videos[i - 3].fileGifUrl }}" class="img-rounded img-custom">
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a [routerLink]="['/dashboardDetail',video.id]">
+                                <img src="{{ videos[i - 2].fileGifUrl }}" class="img-rounded img-custom">
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a [routerLink]="['/dashboardDetail',video.id]">
+                                <img src="{{ videos[i - 1].fileGifUrl }}" class="img-rounded img-custom">
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a [routerLink]="['/dashboardDetail',video.id]">
+                                <img src="{{ videos[i].fileGifUrl }}" class="img-rounded img-custom">
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                </ng-container>
+            </ng-container>
             <div class="text-center">
                 <button class="btn btn-success btn-round" id="btnLoadMoreVideos" (click)="btnLoadMoreVideosClick()">Load more videos...</button>
             </div>
