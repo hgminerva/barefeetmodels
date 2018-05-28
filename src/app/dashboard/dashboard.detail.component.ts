@@ -21,7 +21,7 @@ export class DashboardDetailComponent implements OnInit {
   
     ngOnInit() {
       if(localStorage.getItem("username")==null) {
-        this.router.navigate(['/']);
+        this.router.navigate(['login']);
       } else {
         this.getVideo(+this.route.snapshot.params['id']);
       }
